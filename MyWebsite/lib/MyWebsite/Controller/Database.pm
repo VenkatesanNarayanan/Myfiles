@@ -23,13 +23,27 @@ Catalyst Controller.
 
 sub login :Path(/database/login){
 	my ( $self, $c ) = @_;
-	$c->log->info($c->req->params);
+	$c->stash->{template} = "database/login.tt";
 }
 
 sub homepage :Path(/database/homepage){
 	my ( $self, $c ) = @_;
+
 	$c->stash->{word}= $c->req->params->{uname};
-	$c->forward("/database/login");
+	my $uname = $c->req->params->{uname};
+	my $pword = $c->req->params->{pword};
+	my $flag = 1;
+
+	if($uname == "bas" and $pword == "1234")
+	{
+		$flag = 0;
+	}
+
+	if ( $flag ){
+		$c->stash->{fail1} = 1;
+		$c->stash->{failmsg} = "user name password is wrong";
+		$c->stash->{template} = "database/login.tt";
+	}
 }
 
 sub index :Path :Args(0) {
