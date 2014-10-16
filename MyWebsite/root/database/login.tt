@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Login</title>
+		<center>Welcome</center>
+	</head>
+	<body>
+		<form method="POST" action="homepage">
+			<div>
+				Username
+				<input type="text" name="uname">
+			</div>
+			<div>
+				password
+				<input type="text" name="pword">
+			</div>
+			<div>
+				<input type="submit" name="btn_submit">
+			</div>
+
+		</form>
+	</body>
+
+</html>
