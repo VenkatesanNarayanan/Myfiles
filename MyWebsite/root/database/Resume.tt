@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			table, th, td
+			{
+				border-collapse:collapse;
+				border:2px solid black;
+				text-align: center;
+				width:700px;
+			}
+			th, td
+			{
+				padding:5px;
+			}
+			.p1
+			{
+				font-size:20px ;  
+				color:#ff3300;
+				font-style:bold;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="res1" name="resume" method="post">
+			<div id="con"  style="height : auto; margin-bottom : 40px;">
+				<center>
+					<p class="p1"> Accademinc details</p>
+					<table>
+						<tr>
+							<th>Class</th>
+							<th>Board</th>
+							<th>Year Of Passing</th>
+							<th>Marks</th>
+						</tr>
+						<tr>
+							<td>MCA</td>
+							<td>SASTRA UNIVERSITY</td>
+							<td>2014</td>
+							<td>80%</td>
+						</tr>
+						<tr>
+							<td>BCA</td>
+							<td>St.Joseph's college</td>
+							<td>2012</td>
+							<td>74.11%</td>	
+						</tr>
+						<tr>
+							<td>12th</td>
+							<td>Government Boys Higher Secondary School,Musiri</td>
+							<td>2009</td>
+							<td>78.92%</td>
+						</tr>
+						<tr>
+							<td>10th</td>
+							<td>Government Boys Higher Secondary School,Musiri</td>
+							<td>2007</td>
+							<td>56.2%</td>
+						</tr>
+					</table>
+					<p class="p1">
+					Skills</p>
+					<table>
+						<tr>
+							<td>Programing Languages</td>
+							<td>C,C++,Java,Perl,Html,Java Script,Jquery</td>
+						</tr>
+						<tr>
+							<td>Database</td>
+							<td>Microsoft SQL Server, Access</td>
+						</tr>
+						<tr>
+							<td>Operating Systems </td>	
+							<td>DOS, Windows,Linux(Basic)</td> 
+						</tr>
+						<tr>
+							<td>Software</td>
+							<td>Rup (Case Tools), MS Word, MS Excel, MS PowerPoint</td>
+						</tr>
+					</table>
+					<p class="p1" >Projects Worked</p>
+					<table>
+						<tr>
+							<th>Title</th>
+							<th>Front End</th>
+							<th>Back End</th>
+						</tr>
+						<tr>
+							<td>Design And Analysis of Graph Coloring Algorithms</td>
+							<td>Java</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>Question Paper Management System</td>
+							<td>Java</td>
+							<td>Microsoft Access2007</td>
+						</tr>	
+						<tr>
+							<td>Retail shop Maintenance</td>
+							<td>Java</td>
+							<td>Sql Server2005</td>
+						</tr>	
+					</table>
+				</center>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

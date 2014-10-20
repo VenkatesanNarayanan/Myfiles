@@ -1,10 +1,143 @@
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
 		<title>Welcome</title>
 	</head>	
 	<body>
-		<h1> welcome [% word %]</h1>
-	</body>
+		<div id="root" class="container-fluid"> 
+			<div id="header" class="container rootcls" >     
+				<div id="headerid" name="header" class="row col-md-10"> 
+					<div id="logoid" name="logo" class="col-md-2"> 
+						<img class="img-rounded btn-block" src="../Assets/Images/logo.png"> 
+					</div> 
+					<div id="idheadtext" name="headtext" class="col-md-9 headname"> 
+						<div id="headnameid" name="headname" class="col-md-9 headlbl"> 
+							<font size="7" face="URW Chancery L" color="#cc6600" > 
+								Venkatesan N 
+							</font> 
+						</div> 
+						<div id="contactid" name="conatact" class="col-md-3 headlbl"> 
+							<p align="left"style="padding-top:60px;"> 
+							<font size="5" face="URW Chancery L" color="#990000"> 
+								Mobile:9790340545 
+								Email:venkatesanmusiri@gmail.com 
+							</font> 
+							</p> 
+						</div> 
+					</div> 
+				</div> 
+			</div> 
+
+			<div class="container"> 
+					<p> hai [% word %] </p>
+				<div class="col-md-2 content" id="menu" style="margin-left:20px; background-color:#ccccff; height:300px;"> 
+					<br><br> 
+					<div class="navbar-default" role="navigation" > 
+						<div class="sidebar-collapse"> 
+							<ul id="side-menu" class="nav"> 
+								<li> 
+								<a id="abm" name="aboutme" href="#" class="nevigate">  About Me </a> 
+								</li> 
+								<li> 
+								<a id="res" name="Resume" href="#" class="nevigate" > Resume</a> 
+								</li> 
+								<li> 
+								<a id="cf" name="cont" href="#"   class="nevigate" > contact Form</a> 
+								</li> 
+								<li> 
+								<a id="gal" name="gallery" href="#" class="nevigate"> Gallery</a> 
+								</li> 
+							</ul> 
+						</div> 
+					</div> 
+				</div> 
+				<div id="cont" class="col-md-9 content" style="margin-left:30px; padding-top:20px; background-color:#ccccff;"> 
+				</div> 
+			</div> 
+			<div class="container" style="margin-bottom:50px; margin-top:50px;"> 
+				<div class="col-md-12 rootcls" style="height:5px"> 
+				</div>       
+				<center> 
+					<br> 
+					Copyright &#169; Venkatesan N 
+					<div  style="margin-top:20px;"> 
+						<a id="abm1" name="aboutme" href="#" class="nevigate"><button class="btn btn-primary btn-xs">About Me</button></a> 
+						<a id="res1" name="Resume" href="#" class="nevigate"><button class="btn btn-primary btn-xs">Resume</button></a> 
+						<a id="cf1" name="cont" href="#" class="nevigate"><button class="btn btn-primary btn-xs">Contact Form</button></a> 
+						<a id="gal1" name="gallery" href="#" class="nevigate"><button class="btn btn-primary btn-xs">Gallery</button></a> 
+					</div> 
+				</center> 
+			</div> 
+		</div> 
+	</body> 
+
+	<link href="../Assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" /> 
+	<link href="../Assets/jquery-ui/jquery-ui.min.css" rel="stylesheet" /> 
+	<link href="../Assets/funapps/source/jquery.fancybox.css" type= "text/css" rel="stylesheet" media="screen" /> 
+	<link href="../Assets/jquery-ui/jquery-ui.min.css" rel="stylesheet" /> 
+	<link href="../Assets/mydetail.css" rel="stylesheet"> 
+
+	<script src="../Assets/jquery.js" type="text/javascript"></script> 
+	<script src="../Assets/jquery-ui/jquery-ui.min.js" type="text/javascript"></script> 
+	<script src="../Assets/funapps/source/jquery.fancybox.js" type="text/javascript" ></script> 
+	<script src="../Assets/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"> </script> 
+	<script src="../Assets/jquery-validation-1.13.0/dist/jquery.validate.min.js" type="text/javascript"> </script> 
+	<script src="../Assets/jquery-validation-1.13.0/dist/additional-methods.min.js" type="text/javascript"> </script> 
+
+	<script> 
+		$('document').ready(function() 
+		{ 
+			loadpage('aboutme');
+			$('.fancybox').fancybox();
+			$('.nevigate').click(function(){
+				var element = $(this).attr('name');
+				element = '/database/' + element;
+				loadpage(element);
+			});
+
+			function loadpage(element)
+			{
+				$.ajax( 
+				{ 
+					url:element, 
+					contentType:'text/html', 
+					dataType:'html' 
+				}).done(function(responseText)  
+				{ 
+					$("#cont").html(responseText); 
+
+				}).fail(function(err)  
+				{  
+					alert("error" + err);  
+				});
+
+			}
+
+			$('#menu').click(function(event){
+				//alert("hai");
+				if(event.target==this)
+				{
+
+					if($('#menu').width()<='0')
+					{
+						$('#menu').animate({
+							width:'190px'
+						});
+					}
+					else
+					{
+						$('#menu').css({ 'width':'10px','overflow':'hidden'});
+					}
+				}
+
+			});
+
+		});
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+	</style>
 
 </html>

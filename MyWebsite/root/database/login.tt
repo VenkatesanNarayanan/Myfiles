@@ -5,10 +5,10 @@
 		<center>Welcome</center>
 	</head>
 	<body>
-		[% IF fail1 %]
+		[% IF fail %]
 		<p color="red"> Login Fail .. [% failmsg %]</p>
 		[% END %]
-		<form method="POST" action="/database/homepage">
+		<form method="POST" action="/database/login">
 			<div>
 				Username
 				<input type="text" name="uname">
@@ -18,7 +18,7 @@
 				<input type="password" name="pword">
 			</div>
 			<div>
-				<input type="submit" name="btn_submit">
+				<input type="submit">
 			</div>
 
 		</form>

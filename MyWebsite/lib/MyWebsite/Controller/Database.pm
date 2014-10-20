@@ -23,29 +23,45 @@ Catalyst Controller.
 
 sub login :Path(/database/login){
 	my ( $self, $c ) = @_;
-	$c->stash->{template} = "database/login.tt";
+
+	my $uname = $c->req->params->{uname};
+	my $pword = $c->req->params->{pword};
+	my $obj = $c->model('MYDB::Login')->search({});
+	$c->log->info(Dumper $obj);
+	if($c->req->method eq "POST")
+	{
+		if($uname eq "bas" and $pword eq "1234")
+		{
+			$c->stash->{word}= $c->req->params->{uname};
+			$c->stash->{template} = "database/homepage.tt";
+		} else {
+			$c->stash->{fail} = 1;
+			$c->stash->{failmsg} = "username password is wrong";
+			$c->stash->{template} = "database/login.tt";
+		}
+	}
 }
+
 
 sub homepage :Path(/database/homepage){
 	my ( $self, $c ) = @_;
-
-	$c->stash->{word}= $c->req->params->{uname};
-	my $uname = $c->req->params->{uname};
-	my $pword = $c->req->params->{pword};
-	my $flag = 1;
-
-	if($uname == "bas" and $pword == "1234")
-	{
-		$flag = 0;
-	}
-
-	if ( $flag ){
-		$c->stash->{fail1} = 1;
-		$c->stash->{failmsg} = "user name password is wrong";
-		$c->stash->{template} = "database/login.tt";
-	}
 }
 
+sub aboutme :Path(/database/aboutme){
+	my ( $self, $c ) = @_;
+}
+
+sub Resume :Path(/database/Resume){
+	my ( $self, $c ) = @_;
+}
+
+sub cont :Path(/database/cont){
+	my ( $self, $c ) = @_;
+}
+
+sub gallery :Path(/database/gallery){
+	my ( $self, $c ) = @_;
+}
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
     $c->response->body('Matched MyWebsite::Controller::Database in Database.');
